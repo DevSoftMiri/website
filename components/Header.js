@@ -1,11 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const links = [["Product", "#product"], ["How it works", "#how-it-works"], ["For employers", "/about"]];
 export default function Header() {
   const [open, setOpen] = useState(false);
-  return <header className="site-header"><div className="nav-wrap">
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setCompact(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return <header className={compact ? "site-header compact" : "site-header"}><div className="nav-wrap">
     <Link className="brand" href="/"><img className="brand-logo" src="/wimaan-logo.png" alt="Wimaan" /><span>Wimaan</span></Link>
     <nav className={open ? "main-nav open" : "main-nav"} aria-label="Main navigation">
       {links.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)}>{label}</Link>)}

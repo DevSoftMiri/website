@@ -1,4 +1,6 @@
 import "./globals.css";
+import "./footer-overrides.css";
+import "./reveal-overrides.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
