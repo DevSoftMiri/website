@@ -1,0 +1,20 @@
+import Link from "next/link";
+
+const playUrl = "https://play.google.com/store/apps/details?id=in.wimaan.twa";
+
+export default function FinalCta() {
+  return <section className="final-cta" aria-labelledby="final-cta-title">
+    <div className="final-cta-inner">
+      <div className="final-cta-copy">
+        <span className="final-cta-eyebrow">आपका अगला कदम यहीं से शुरू होता है।</span>
+        <h2 id="final-cta-title">Your next step<br />starts here.</h2>
+        <p>Discover better opportunities and make smarter decisions with Wimo.</p>
+        <div className="final-cta-downloads">
+          <div className="final-cta-download-row"><Link href={playUrl} target="_blank" rel="noreferrer" className="final-cta-button">▶ <span>Download Wimaan</span></Link><img className="final-cta-qr" src="/qr-google-play.png" alt="Scan to download Wimaan on Google Play" /><span className="final-cta-qr-copy">On a computer?<br />Scan with your phone.</span></div>
+          <Link href={playUrl} target="_blank" rel="noreferrer" className="final-cta-play-badge"><span className="play-triangle">▶</span><span><small>GET IT ON</small>Google Play</span></Link>
+        </div>
+      </div>
+      <div className="final-cta-art"><img src="/Wimaan%20Finance%20App%20Smartphone%20Mockup.png" alt="Wimaan finance app on a smartphone" /></div>
+    </div>
+  </section>;
+}
